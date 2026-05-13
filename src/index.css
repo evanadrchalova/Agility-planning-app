@@ -8,3 +8,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Progress circle animation */
+@keyframes progress {
+  from {
+    stroke-dasharray: 0 1000;
+  }
+}
+
+.animate-progress {
+  animation: progress 1.5s ease-out forwards;
+}
