@@ -53,7 +53,7 @@ export default function AgilityApp() {
             <p className="text-sm text-gray-600 mb-4">Category A2</p>
 
             {/* Rest Day Badge */}
-            <div className="bg-[#FF8C69]/10 px-3 py-1 rounded-md">
+            <div className="bg-[#A78BFA]/10 px-3 py-1 rounded-md">
               <span className="text-xs font-bold text-[#FF6B45] tracking-wider uppercase">rest day 1/2</span>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function AgilityApp() {
                   cx="32"
                   cy="32"
                   r="26"
-                  stroke="#FF8C69"
+                  stroke="#A78BFA"
                   strokeWidth="8"
                   fill="none"
                   strokeDasharray={`${26 * 2 * Math.PI * 0.8} ${26 * 2 * Math.PI}`}
@@ -148,7 +148,7 @@ export default function AgilityApp() {
                         </div>
                       ) : (
                         <div className={`w-3 h-3 rounded-full ${
-                          completed ? 'bg-[#FF8C69]' : 'bg-gray-200'
+                          completed ? 'bg-[#A78BFA]' : 'bg-gray-200'
                         }`}></div>
                       )}
                     </div>
@@ -170,7 +170,7 @@ export default function AgilityApp() {
               <div
                 key={i}
                 className={`h-6 flex-1 rounded ${
-                  i < 4 ? 'bg-[#FF8C69]' : 'bg-gray-200'
+                  i < 4 ? 'bg-[#A78BFA]' : 'bg-gray-200'
                 }`}
               ></div>
             ))}
