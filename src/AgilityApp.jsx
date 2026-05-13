@@ -53,8 +53,8 @@ export default function AgilityApp() {
             <p className="text-sm text-gray-600 mb-4">Category A2</p>
 
             {/* Rest Day Badge */}
-            <div className="bg-[#FF8C69]/10 px-3 py-1 rounded-md">
-              <span className="text-xs font-bold text-[#FF6B45] tracking-wider uppercase">rest day 1/2</span>
+            <div className="bg-[#06B6D4]/10 px-3 py-1 rounded-md">
+              <span className="text-xs font-bold text-[#0891B2] tracking-wider uppercase">rest day 1/2</span>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function AgilityApp() {
                   cx="32"
                   cy="32"
                   r="26"
-                  stroke="#FF8C69"
+                  stroke="#06B6D4"
                   strokeWidth="8"
                   fill="none"
                   strokeDasharray={`${26 * 2 * Math.PI * 0.8} ${26 * 2 * Math.PI}`}
@@ -141,14 +141,14 @@ export default function AgilityApp() {
                   {activity.days.map((completed, dayIdx) => (
                     <div key={dayIdx} className="w-6 flex justify-center items-center relative">
                       {dayIdx === 0 && completed ? (
-                        <div className="w-4 h-4 bg-[#06B6D4] rounded-full flex items-center justify-center">
+                        <div className="w-4 h-4 bg-[#10B981] rounded-full flex items-center justify-center">
                           <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
                             <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
                       ) : (
                         <div className={`w-3 h-3 rounded-full ${
-                          completed ? 'bg-[#FF8C69]' : 'bg-gray-200'
+                          completed ? 'bg-[#06B6D4]' : 'bg-gray-200'
                         }`}></div>
                       )}
                     </div>
@@ -170,7 +170,7 @@ export default function AgilityApp() {
               <div
                 key={i}
                 className={`h-6 flex-1 rounded ${
-                  i < 4 ? 'bg-[#FF8C69]' : 'bg-gray-200'
+                  i < 4 ? 'bg-[#06B6D4]' : 'bg-gray-200'
                 }`}
               ></div>
             ))}
