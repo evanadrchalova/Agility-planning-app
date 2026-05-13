@@ -141,8 +141,8 @@ export default function AgilityApp() {
                   {activity.days.map((completed, dayIdx) => (
                     <div key={dayIdx} className="w-6 flex justify-center items-center relative">
                       {dayIdx === 0 && completed ? (
-                        <div className="w-5 h-5 bg-[#06B6D4] rounded-full flex items-center justify-center">
-                          <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
+                        <div className="w-[18px] h-[18px] bg-[#06B6D4] rounded-full flex items-center justify-center ring-4 ring-[#06B6D4]/30">
+                          <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
                             <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
                         </div>
