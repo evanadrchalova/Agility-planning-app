@@ -86,7 +86,7 @@ export default function AgilityApp() {
                 />
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-sm font-black text-gray-800">80%</span>
+                <span className="text-sm font-black text-gray-800 opacity-80">80%</span>
               </div>
             </div>
 
