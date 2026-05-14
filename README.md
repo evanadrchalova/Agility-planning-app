@@ -2,6 +2,8 @@
 
 A mobile-first web app for tracking dog agility training progress. Built with React and Tailwind CSS.
 
+> **Note:** This is a visual prototype/mockup of the dashboard screen. For the full product specification and information architecture, see [`docs/agilitylog-IA-spec.md`](docs/agilitylog-IA-spec.md).
+
 ## ✨ Features
 
 - **🐕 Dog Profile Card** - View your dog's info, breed, and category
