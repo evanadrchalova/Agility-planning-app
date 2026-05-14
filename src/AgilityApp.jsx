@@ -147,7 +147,10 @@ export default function AgilityApp() {
                 <div className="w-24 text-xs text-gray-600 text-left pl-0 overflow-hidden text-ellipsis whitespace-nowrap">
                   {activity.name}
                 </div>
-                <div className="flex-1 flex justify-between px-1">
+                <div className="flex-1 flex justify-between px-1 relative">
+                  {/* Connecting line */}
+                  <div className="absolute top-1/2 left-3 right-3 h-px border-t border-dashed border-gray-300 -z-10"></div>
+
                   {activity.days.map((completed, dayIdx) => (
                     <div key={dayIdx} className="w-6 flex justify-center items-center relative">
                       {dayIdx === 0 && completed ? (
