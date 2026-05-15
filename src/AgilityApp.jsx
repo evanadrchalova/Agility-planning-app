@@ -73,6 +73,14 @@ export default function AgilityApp() {
           </div>
         </div>
 
+        {/* Add Training Session Button */}
+        <button className="w-full bg-[#06B6D4] text-white rounded-2xl shadow-md p-4 font-bold text-base flex items-center justify-center gap-2">
+          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+          </svg>
+          Add Training Session
+        </button>
+
         {/* Weekly Progress Card */}
         <div className="bg-white rounded-2xl shadow-md p-6">
           <div className="flex items-center gap-6">
