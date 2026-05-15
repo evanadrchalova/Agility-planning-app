@@ -1,6 +1,65 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+// Icon components
+const TrainingIcon = ({ type, className }) => {
+  const icons = {
+    'Rest': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    ),
+    'Short walk': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" opacity="0.5" />
+      </svg>
+    ),
+    'Long walk': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    'Small training': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+    'Big training': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M6.5 6.5l11 11M6.5 17.5l11-11" />
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    ),
+    'Fitness': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M6 7v10M10 5v14M14 5v14M18 7v10" />
+      </svg>
+    ),
+    'Swimming': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M2 15c.6.5 1.2 1 2.5 1 1.3 0 1.9-.5 2.5-1s1.2-1 2.5-1c1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c1.3 0 1.9-.5 2.5-1s1.2-1 2.5-1c1.3 0 1.9.5 2.5 1M2 19c.6.5 1.2 1 2.5 1 1.3 0 1.9-.5 2.5-1s1.2-1 2.5-1c1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c1.3 0 1.9-.5 2.5-1s1.2-1 2.5-1c1.3 0 1.9.5 2.5 1" />
+        <path d="M12 5a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" opacity="0.5" />
+      </svg>
+    ),
+    'Intensive': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    'Other': (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <circle cx="12" cy="12" r="1" />
+        <circle cx="19" cy="12" r="1" />
+        <circle cx="5" cy="12" r="1" />
+      </svg>
+    ),
+  };
+
+  return icons[type] || icons['Other'];
+};
+
 export default function AddTrainingView() {
   const navigate = useNavigate();
   const [type, setType] = useState('Big training');
@@ -62,17 +121,7 @@ export default function AddTrainingView() {
               >
                 {/* Icon with ring */}
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-[#06B6D4] ring-4 ring-[#06B6D4]/30">
-                  <span className="text-lg text-white">
-                    {type === 'Rest' && '😴'}
-                    {type === 'Short walk' && '🚶'}
-                    {type === 'Long walk' && '🚶‍♂️'}
-                    {type === 'Small training' && '🎯'}
-                    {type === 'Big training' && '🏋️'}
-                    {type === 'Fitness' && '💪'}
-                    {type === 'Swimming' && '🏊'}
-                    {type === 'Intensive' && '🔥'}
-                    {type === 'Other' && '📝'}
-                  </span>
+                  <TrainingIcon type={type} className="w-5 h-5 text-white" />
                 </div>
 
                 {/* Label */}
@@ -105,17 +154,7 @@ export default function AddTrainingView() {
                     >
                       {/* Icon */}
                       <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-200">
-                        <span className="text-lg text-gray-600">
-                          {t === 'Rest' && '😴'}
-                          {t === 'Short walk' && '🚶'}
-                          {t === 'Long walk' && '🚶‍♂️'}
-                          {t === 'Small training' && '🎯'}
-                          {t === 'Big training' && '🏋️'}
-                          {t === 'Fitness' && '💪'}
-                          {t === 'Swimming' && '🏊'}
-                          {t === 'Intensive' && '🔥'}
-                          {t === 'Other' && '📝'}
-                        </span>
+                        <TrainingIcon type={t} className="w-5 h-5 text-gray-600" />
                       </div>
 
                       {/* Label */}
