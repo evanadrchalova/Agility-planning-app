@@ -76,7 +76,7 @@ export default function AddTrainingView() {
                     onClick={() => setDifficulty(level)}
                     className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all ${
                       difficulty >= level
-                        ? 'bg-[#06B6D4] text-white scale-110'
+                        ? 'bg-[#06B6D4] text-white ring-4 ring-[#06B6D4]/30'
                         : 'bg-gray-200 text-gray-600'
                     }`}
                   >
