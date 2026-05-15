@@ -67,6 +67,8 @@ export default function AddTrainingView() {
   const [difficulty, setDifficulty] = useState(3);
   const [positives, setPositives] = useState('');
   const [toImprove, setToImprove] = useState('');
+  const [addToTodo, setAddToTodo] = useState(false);
+  const [todoText, setTodoText] = useState('');
 
   const trainingTypes = [
     'Rest',
@@ -221,6 +223,36 @@ export default function AddTrainingView() {
                 placeholder="What needs more work..."
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/20 outline-none resize-none"
               />
+            </div>
+
+            {/* Add to Todo List */}
+            <div className="bg-[#06B6D4]/5 rounded-xl p-4 border-2 border-[#06B6D4]/20">
+              <label className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={addToTodo}
+                  onChange={(e) => setAddToTodo(e.target.checked)}
+                  className="w-5 h-5 rounded border-gray-300 text-[#06B6D4] focus:ring-[#06B6D4] cursor-pointer"
+                />
+                <span className="text-sm font-medium text-gray-900">
+                  Add to todo list
+                </span>
+              </label>
+
+              {addToTodo && (
+                <div className="mt-3">
+                  <textarea
+                    value={todoText}
+                    onChange={(e) => setTodoText(e.target.value)}
+                    rows={3}
+                    placeholder="What do you need to work on in future training sessions?"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/20 outline-none resize-none"
+                  />
+                  <p className="mt-2 text-xs text-gray-500">
+                    💡 This will be added to your training plan todo list
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Save Button */}
