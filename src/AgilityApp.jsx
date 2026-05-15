@@ -84,12 +84,15 @@ export default function AgilityApp() {
           Add Training Session
         </button>
 
-        {/* Quick Voice Log Button */}
-        <button className="w-full bg-white border-2 border-[#06B6D4] text-[#06B6D4] rounded-2xl shadow-md p-3 font-medium text-base flex items-center justify-center gap-2 hover:bg-[#06B6D4]/5 transition-colors">
+        {/* Quick Voice Note Button */}
+        <button
+          className="w-full bg-white border-2 border-[#06B6D4] text-[#06B6D4] rounded-2xl shadow-md p-3 font-medium text-base flex items-center justify-center gap-2 hover:bg-[#06B6D4]/5 transition-colors"
+          onClick={() => navigate('/voice-note')}
+        >
           <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
           </svg>
-          Quick Voice Log
+          Quick Voice Note
         </button>
 
         {/* Weekly Progress Card */}

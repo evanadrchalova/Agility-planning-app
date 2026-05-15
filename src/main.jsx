@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import RecordsView from './RecordsView.jsx'
 import AddTrainingView from './AddTrainingView.jsx'
+import VoiceNoteView from './VoiceNoteView.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/records" element={<RecordsView />} />
         <Route path="/add-training" element={<AddTrainingView />} />
+        <Route path="/voice-note" element={<VoiceNoteView />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
