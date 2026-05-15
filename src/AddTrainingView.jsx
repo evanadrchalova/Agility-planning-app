@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function AddTrainingView() {
   const navigate = useNavigate();
   const [type, setType] = useState('Big training');
+  const [isTypeOpen, setIsTypeOpen] = useState(false);
   const [difficulty, setDifficulty] = useState(3);
   const [positives, setPositives] = useState('');
   const [toImprove, setToImprove] = useState('');
@@ -49,18 +50,87 @@ export default function AddTrainingView() {
           <form onSubmit={handleSave} className="space-y-6">
             {/* Training Type */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-3">
                 Training type
               </label>
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/20 outline-none"
+
+              {/* Selected item - always visible */}
+              <button
+                type="button"
+                onClick={() => setIsTypeOpen(!isTypeOpen)}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-[#06B6D4]/10 border-2 border-[#06B6D4] transition-all"
               >
-                {trainingTypes.map((t) => (
-                  <option key={t} value={t}>{t}</option>
-                ))}
-              </select>
+                {/* Icon with ring */}
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-[#06B6D4] ring-4 ring-[#06B6D4]/30">
+                  <span className="text-lg text-white">
+                    {type === 'Rest' && '😴'}
+                    {type === 'Short walk' && '🚶'}
+                    {type === 'Long walk' && '🚶‍♂️'}
+                    {type === 'Small training' && '🎯'}
+                    {type === 'Big training' && '🏋️'}
+                    {type === 'Fitness' && '💪'}
+                    {type === 'Swimming' && '🏊'}
+                    {type === 'Intensive' && '🔥'}
+                    {type === 'Other' && '📝'}
+                  </span>
+                </div>
+
+                {/* Label */}
+                <span className="flex-1 text-left font-medium text-gray-900">
+                  {type}
+                </span>
+
+                {/* Chevron - rotates when open */}
+                <svg
+                  className={`w-5 h-5 text-[#06B6D4] transition-transform ${isTypeOpen ? 'rotate-180' : ''}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+
+              {/* Dropdown options - shown when open */}
+              {isTypeOpen && (
+                <div className="mt-2 space-y-2 bg-white border-2 border-gray-200 rounded-xl p-2">
+                  {trainingTypes.filter(t => t !== type).map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => {
+                        setType(t);
+                        setIsTypeOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-gray-50 transition-all"
+                    >
+                      {/* Icon */}
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-200">
+                        <span className="text-lg text-gray-600">
+                          {t === 'Rest' && '😴'}
+                          {t === 'Short walk' && '🚶'}
+                          {t === 'Long walk' && '🚶‍♂️'}
+                          {t === 'Small training' && '🎯'}
+                          {t === 'Big training' && '🏋️'}
+                          {t === 'Fitness' && '💪'}
+                          {t === 'Swimming' && '🏊'}
+                          {t === 'Intensive' && '🔥'}
+                          {t === 'Other' && '📝'}
+                        </span>
+                      </div>
+
+                      {/* Label */}
+                      <span className="flex-1 text-left font-medium text-gray-700">
+                        {t}
+                      </span>
+
+                      {/* Chevron */}
+                      <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Difficulty */}
