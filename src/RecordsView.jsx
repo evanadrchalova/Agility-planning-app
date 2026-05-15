@@ -76,10 +76,18 @@ export default function RecordsView() {
           </div>
         </div>
 
+        {/* Add Button */}
+        <button className="w-full bg-[#06B6D4] text-white rounded-2xl shadow-md p-4 font-bold text-base flex items-center justify-center gap-2">
+          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
+          </svg>
+          Add Training Session
+        </button>
+
         {/* Tabs */}
         <div className="bg-white rounded-2xl shadow-md p-2 flex gap-2">
           <button className="flex-1 py-2 px-4 bg-[#06B6D4] text-white rounded-lg font-medium text-sm">
-            Records
+            Previous trainings
           </button>
           <button className="flex-1 py-2 px-4 text-gray-600 rounded-lg font-medium text-sm">
             Stats
@@ -89,7 +97,7 @@ export default function RecordsView() {
           </button>
         </div>
 
-        {/* Records List */}
+        {/* Previous Trainings List */}
         {records.map((record) => (
           <div key={record.id} className="bg-white rounded-2xl shadow-md p-6">
             <div className="flex items-start justify-between mb-4">
@@ -125,14 +133,6 @@ export default function RecordsView() {
             </button>
           </div>
         ))}
-
-        {/* Add Button */}
-        <button className="w-full bg-[#06B6D4] text-white rounded-2xl shadow-md p-4 font-bold text-base flex items-center justify-center gap-2">
-          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clipRule="evenodd" />
-          </svg>
-          Add Training Session
-        </button>
       </main>
     </div>
   );
