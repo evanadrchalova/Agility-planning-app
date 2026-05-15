@@ -96,7 +96,7 @@ export default function AgilityApp() {
         </button>
 
         {/* Weekly Progress Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/weekly-plan')}>
           <div className="flex items-center gap-6">
             {/* Progress Circle */}
             <div className="relative w-16 h-16 flex-shrink-0">
@@ -241,8 +241,13 @@ export default function AgilityApp() {
         </div>
 
         {/* In Progress Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
-          <h3 className="text-base font-bold text-gray-900 mb-1">In progress</h3>
+        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/in-progress')}>
+          <div className="flex items-center justify-between mb-1">
+            <h3 className="text-base font-bold text-gray-900">In progress</h3>
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
           <p className="text-sm text-gray-600 mb-4">Dogwalk 4/6</p>
 
           {/* Progress Bar */}

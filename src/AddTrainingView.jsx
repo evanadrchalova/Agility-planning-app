@@ -98,7 +98,7 @@ export default function AddTrainingView() {
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
-            <span className="font-bold text-base">Cancel</span>
+            <span className="font-bold text-base">Back</span>
           </button>
         </div>
       </header>
@@ -119,7 +119,7 @@ export default function AddTrainingView() {
               <button
                 type="button"
                 onClick={() => setIsTypeOpen(!isTypeOpen)}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-[#06B6D4]/10 border-2 border-[#06B6D4] transition-all"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-[#06B6D4]/10 border-2 border-[#06B6D4]/20 transition-all"
               >
                 {/* Icon with ring */}
                 <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-[#06B6D4] ring-4 ring-[#06B6D4]/30">
@@ -143,7 +143,7 @@ export default function AddTrainingView() {
 
               {/* Dropdown options - shown when open */}
               {isTypeOpen && (
-                <div className="mt-2 space-y-2 bg-white border-2 border-gray-200 rounded-xl p-2">
+                <div className="mt-2 space-y-2 bg-[#06B6D4]/10 border-2 border-[#06B6D4]/20 rounded-xl p-2">
                   {trainingTypes.filter(t => t !== type).map((t) => (
                     <button
                       key={t}
@@ -152,7 +152,7 @@ export default function AddTrainingView() {
                         setType(t);
                         setIsTypeOpen(false);
                       }}
-                      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white hover:bg-gray-50 transition-all"
+                      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-transparent hover:bg-[#06B6D4]/20 transition-all"
                     >
                       {/* Icon */}
                       <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-200">
@@ -228,12 +228,22 @@ export default function AddTrainingView() {
             {/* Add to Todo List */}
             <div className="bg-[#06B6D4]/5 rounded-xl p-4 border-2 border-[#06B6D4]/20">
               <label className="flex items-center gap-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={addToTodo}
-                  onChange={(e) => setAddToTodo(e.target.checked)}
-                  className="w-5 h-5 rounded border-gray-300 text-[#06B6D4] focus:ring-[#06B6D4] cursor-pointer"
-                />
+                {/* Custom Checkbox */}
+                <button
+                  type="button"
+                  onClick={() => setAddToTodo(!addToTodo)}
+                  className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 transition-all ${
+                    addToTodo
+                      ? 'bg-[#06B6D4] ring-4 ring-[#06B6D4]/30'
+                      : 'bg-white border-2 border-gray-300'
+                  }`}
+                >
+                  {addToTodo && (
+                    <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
+                      <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </button>
                 <span className="text-sm font-medium text-gray-900">
                   Add to todo list
                 </span>
