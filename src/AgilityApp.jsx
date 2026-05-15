@@ -143,27 +143,46 @@ export default function AgilityApp() {
 
             {/* Activity Rows */}
             {activities.map((activity, idx) => (
-              <div key={idx} className="flex items-center gap-2">
+              <div key={idx} className="flex items-center gap-2 relative" style={{ marginTop: idx > 0 ? '0.75rem' : 0 }}>
                 <div className="w-24 text-xs text-gray-600 text-left pl-0 overflow-hidden text-ellipsis whitespace-nowrap">
                   {activity.name}
                 </div>
                 <div className="flex-1 flex justify-between px-1 relative">
-                  {/* Connecting line */}
-                  <div className="absolute top-1/2 left-3 right-3 h-px border-t border-dashed border-gray-300 -z-10"></div>
+                  {/* Single connecting line across entire row */}
+                  <div
+                    className="absolute left-3 right-3 top-1/2 h-px z-0"
+                    style={{
+                      backgroundImage: 'repeating-linear-gradient(to right, #d1d5db 0, #d1d5db 3px, transparent 3px, transparent 6px)'
+                    }}
+                  ></div>
 
                   {activity.days.map((completed, dayIdx) => (
                     <div key={dayIdx} className="w-6 flex justify-center items-center relative">
-                      {dayIdx === 0 && completed ? (
-                        <div className="w-[18px] h-[18px] bg-[#06B6D4] rounded-full flex items-center justify-center ring-4 ring-[#06B6D4]/30">
-                          <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
-                            <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        </div>
-                      ) : (
-                        <div className={`w-3 h-3 rounded-full ${
-                          completed ? 'bg-[#06B6D4]' : 'bg-gray-200'
-                        }`}></div>
+                      {/* Vertical line for Tuesday - only in first activity row, behind dots */}
+                      {dayIdx === 1 && idx === 0 && (
+                        <div
+                          className="absolute left-1/2 top-0 w-px -translate-x-1/2 pointer-events-none"
+                          style={{
+                            height: `calc(${activities.length - 1} * (100% + 0.75rem) + 100%)`,
+                            backgroundImage: 'repeating-linear-gradient(to bottom, #06B6D4 0, #06B6D4 3px, transparent 3px, transparent 6px)',
+                            zIndex: 1
+                          }}
+                        ></div>
                       )}
+
+                      <div className="relative bg-[#fffcfa]" style={{ zIndex: 2 }}>
+                        {dayIdx === 0 && completed ? (
+                          <div className="w-[18px] h-[18px] bg-[#06B6D4] rounded-full flex items-center justify-center ring-4 ring-[#06B6D4]/30">
+                            <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
+                              <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </div>
+                        ) : (
+                          <div className={`w-3 h-3 rounded-full ${
+                            completed ? 'bg-[#06B6D4]' : 'bg-gray-200'
+                          }`}></div>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
