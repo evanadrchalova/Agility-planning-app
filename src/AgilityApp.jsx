@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import tlapkaSvg from './assets/tlapka.svg';
 import poharSvg from './assets/pohar.svg';
 import kalendarPng from './assets/kalendar.png';
 import profileSvg from './assets/profile.svg';
 
 export default function AgilityApp() {
+  const navigate = useNavigate();
   const activities = [
     { name: 'Fitness', days: [true, false, false, false, true, true, false] },
     { name: 'Long walk', days: [false, false, false, true, true, true, true] },
@@ -40,7 +42,15 @@ export default function AgilityApp() {
       <main className="max-w-md mx-auto px-4 py-8 space-y-4">
 
         {/* Dog Profile Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
+        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/records')}>
+          {/* Header with title and chevron */}
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-base font-bold text-gray-900">Training notes</h3>
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
+
           <div className="flex flex-col items-center">
             {/* Dog Avatar with pulses */}
             <div className="relative w-28 h-28 mb-6">
@@ -48,9 +58,13 @@ export default function AgilityApp() {
             </div>
 
             {/* Dog Info */}
-            <h2 className="text-lg font-bold text-gray-900 mb-1">Kaii</h2>
-            <p className="text-sm text-gray-600">Border collie</p>
-            <p className="text-sm text-gray-600 mb-4">Category A2</p>
+            <h2 className="text-lg font-bold text-gray-900 mb-4">Kaii</h2>
+
+            <div className="w-full space-y-2 mb-4 text-center">
+              <p className="text-sm text-gray-600">Last session: <span className="font-medium text-gray-900">Yesterday</span></p>
+              <p className="text-sm text-gray-600">Focus area: <span className="font-medium text-gray-900">Jumps</span></p>
+              <p className="text-sm text-gray-600"><span className="font-medium text-gray-900">2 goals remaining</span></p>
+            </div>
 
             {/* Rest Day Badge */}
             <div className="bg-[#06B6D4]/10 px-3 py-1 rounded-md">
@@ -158,28 +172,41 @@ export default function AgilityApp() {
 
                   {activity.days.map((completed, dayIdx) => (
                     <div key={dayIdx} className="w-6 flex justify-center items-center relative">
-                      {/* Vertical line for Tuesday - only in first activity row, behind dots */}
+                      {/* Background highlight for Tuesday - only in first activity row */}
                       {dayIdx === 1 && idx === 0 && (
-                        <div
-                          className="absolute left-1/2 top-0 w-px -translate-x-1/2 pointer-events-none"
-                          style={{
-                            height: `calc(${activities.length - 1} * (100% + 0.75rem) + 100%)`,
-                            backgroundImage: 'repeating-linear-gradient(to bottom, #06B6D4 0, #06B6D4 3px, transparent 3px, transparent 6px)',
-                            zIndex: 1
-                          }}
-                        ></div>
+                        <>
+                          {/* Solid background bar with opacity */}
+                          <div
+                            className="absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none"
+                            style={{
+                              width: '2rem',
+                              height: `calc(${activities.length - 1} * (100% + 0.75rem) + 100%)`,
+                              backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                              zIndex: 0
+                            }}
+                          ></div>
+                          {/* Dashed line on top */}
+                          <div
+                            className="absolute left-1/2 top-0 w-px -translate-x-1/2 pointer-events-none"
+                            style={{
+                              height: `calc(${activities.length - 1} * (100% + 0.75rem) + 100%)`,
+                              backgroundImage: 'repeating-linear-gradient(to bottom, #06B6D4 0, #06B6D4 3px, transparent 3px, transparent 6px)',
+                              zIndex: 1
+                            }}
+                          ></div>
+                        </>
                       )}
 
-                      <div className="relative bg-[#fffcfa]" style={{ zIndex: 2 }}>
+                      <div className="relative" style={{ zIndex: 2 }}>
                         {dayIdx === 0 && completed ? (
-                          <div className="w-[18px] h-[18px] bg-[#06B6D4] rounded-full flex items-center justify-center ring-4 ring-[#06B6D4]/30">
+                          <div className="w-[18px] h-[18px] bg-[#06B6D4] rounded-full flex items-center justify-center ring-4 ring-[#06B6D4]/30 relative">
                             <svg className="w-3 h-3 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="3">
                               <path d="M3 8l3 3 7-7" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                           </div>
                         ) : (
-                          <div className={`w-3 h-3 rounded-full ${
-                            completed ? 'bg-[#06B6D4]' : 'bg-gray-200'
+                          <div className={`w-3 h-3 rounded-full relative ${
+                            completed ? 'bg-[#06B6D4]' : (dayIdx === 1 ? 'bg-gray-400' : 'bg-gray-200')
                           }`}></div>
                         )}
                       </div>
