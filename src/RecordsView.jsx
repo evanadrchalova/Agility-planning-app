@@ -41,26 +41,26 @@ export default function RecordsView() {
   return (
     <div className="min-h-screen bg-[#fffcfa]">
       {/* Header */}
-      <header className="bg-white border-b-2 border-[#06B6D4]">
-        <div className="max-w-md mx-auto px-6 h-14 flex items-center justify-between">
-          <button className="flex items-center gap-2 opacity-80" onClick={() => navigate('/')}>
+      <header className="bg-gradient-to-b from-[#06B6D4]/5 to-white shadow-sm border-b border-[#06B6D4]/20">
+        <div className="max-w-md mx-auto px-6 h-16 flex items-center justify-between">
+          <button className="flex items-center gap-2 text-gray-700" onClick={() => navigate('/')}>
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
             </svg>
-            <span className="font-bold text-base">Back</span>
+            <span className="font-semibold text-base">Back</span>
           </button>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <button className="w-6 h-6">
               <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-                <circle cx="12" cy="8" r="4" stroke="#12C7E5" strokeWidth="2"/>
-                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#12C7E5" strokeWidth="2" strokeLinecap="round"/>
+                <circle cx="12" cy="8" r="4" stroke="#06B6D4" strokeWidth="1.5"/>
+                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#06B6D4" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </button>
             <button className="w-6 h-6">
-              <div className="space-y-1">
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+              <div className="space-y-1.5">
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
               </div>
             </button>
           </div>

@@ -18,25 +18,26 @@ export default function AgilityApp() {
   return (
     <div className="min-h-screen bg-[#fffcfa]">
       {/* Header */}
-      <header className="bg-white border-b-2 border-[#06B6D4] shadow-lg">
-        <div className="max-w-md mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <img src={agiAppLogo} alt="Agility App" style={{ width: '49px', height: '46px' }} />
-            <div className="h-8 w-px bg-gray-300"></div>
-            <span className="font-bold text-base" style={{ opacity: 0.8 }}>Agility planning</span>
-          </div>
+      <header className="bg-gradient-to-b from-[#06B6D4]/5 to-white shadow-sm border-b border-[#06B6D4]/20">
+        <div className="max-w-md mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center">
+              <img src={agiAppLogo} alt="Agility App" style={{ width: '49px', height: '46px' }} />
+            </div>
+            <span className="font-semibold text-base text-gray-700">Agility planning</span>
+          </div>
+          <div className="flex items-center gap-4">
             <button className="w-6 h-6">
               <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
-                <circle cx="12" cy="8" r="4" stroke="#12C7E5" strokeWidth="2"/>
-                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#12C7E5" strokeWidth="2" strokeLinecap="round"/>
+                <circle cx="12" cy="8" r="4" stroke="#06B6D4" strokeWidth="1.5"/>
+                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#06B6D4" strokeWidth="1.5" strokeLinecap="round"/>
               </svg>
             </button>
             <button className="w-6 h-6">
-              <div className="space-y-1">
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
-                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+              <div className="space-y-1.5">
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
+                <div className="h-0.5 w-6 bg-[#06B6D4] rounded-full"></div>
               </div>
             </button>
           </div>
@@ -47,7 +48,10 @@ export default function AgilityApp() {
       <main className="max-w-md mx-auto px-4 py-8 space-y-4">
 
         {/* Dog Profile Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow overflow-hidden" onClick={() => navigate('/records')}>
+        <div
+          className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99]"
+          onClick={() => navigate('/records')}
+        >
           <div className="flex items-start justify-between gap-4">
             {/* Left side - Text content */}
             <div className="flex-1 flex flex-col justify-center">
