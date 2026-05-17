@@ -86,7 +86,7 @@ export default function AgilityApp() {
 
         {/* Quick Voice Note Button */}
         <button
-          className="w-full bg-white border-2 border-[#06B6D4] text-[#06B6D4] rounded-2xl shadow-md p-3 font-medium text-base flex items-center justify-center gap-2 hover:bg-[#06B6D4]/5 transition-colors"
+          className="w-full bg-white border-2 border-[#06B6D4]/20 text-[#06B6D4] rounded-2xl p-2.5 font-medium text-sm flex items-center justify-center gap-2 hover:bg-[#06B6D4]/5 transition-colors"
           onClick={() => navigate('/voice-note')}
         >
           <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -95,84 +95,14 @@ export default function AgilityApp() {
           Quick Voice Note
         </button>
 
-        {/* This Week Plan Card */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow" onClick={() => navigate('/weekly-plan')}>
-          <div className="flex items-center justify-between">
-            <h3 className="text-base font-bold text-gray-900">This week plan</h3>
-            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Weekly Progress Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/weekly-plan')}>
-          <div className="flex items-center gap-6">
-            {/* Progress Circle */}
-            <div className="relative w-16 h-16 flex-shrink-0">
-              <svg className="w-16 h-16 transform -rotate-90">
-                <circle
-                  cx="32"
-                  cy="32"
-                  r="26"
-                  stroke="#e5e7eb"
-                  strokeWidth="8"
-                  fill="none"
-                />
-                <circle
-                  cx="32"
-                  cy="32"
-                  r="26"
-                  stroke="#06B6D4"
-                  strokeWidth="8"
-                  fill="none"
-                  strokeDasharray={`${26 * 2 * Math.PI * 0.8} ${26 * 2 * Math.PI}`}
-                  strokeLinecap="round"
-                  className="animate-progress"
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-sm font-black text-gray-800 opacity-80">80%</span>
-              </div>
-            </div>
-
-            {/* Progress Text */}
-            <div className="flex-1">
-              <h3 className="text-base font-bold text-gray-900 mb-0.5">Plan for this week</h3>
-              <p className="text-sm text-gray-600">5/7 days plan</p>
-            </div>
-
-            {/* Chevron */}
-            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Today's Goals Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
-          <div className="flex items-center gap-6">
-            {/* Trophy Icon */}
-            <div className="w-16 h-16 flex-shrink-0">
-              <img src={poharSvg} alt="Trophy" className="w-full h-full" />
-            </div>
-
-            {/* Goals Text */}
-            <div className="flex-1">
-              <h3 className="text-base font-bold text-gray-900 mb-0.5">Today's goals</h3>
-              <p className="text-sm text-gray-600">1/2 day plan</p>
-            </div>
-
-            {/* Chevron */}
-            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </div>
-        </div>
-
         {/* This Week Plan Table */}
-        <div className="bg-white rounded-2xl shadow-md p-6">
-          <h3 className="text-base font-bold text-center text-gray-900 mb-6">This week plan</h3>
+        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/weekly-plan')}>
+          <div className="relative mb-6">
+            <h3 className="text-base font-bold text-center text-gray-900">This week plan</h3>
+            <svg className="w-5 h-5 text-gray-400 absolute right-0 top-0" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
 
           <div className="space-y-3">
             {/* Week Days Header */}
@@ -249,6 +179,28 @@ export default function AgilityApp() {
             ))}
           </div>
         </div>
+
+        {/* Today's Goals Card */}
+        <div className="bg-white rounded-2xl shadow-md p-6">
+          <div className="flex items-center gap-6">
+            {/* Trophy Icon */}
+            <div className="w-16 h-16 flex-shrink-0">
+              <img src={poharSvg} alt="Trophy" className="w-full h-full" />
+            </div>
+
+            {/* Goals Text */}
+            <div className="flex-1">
+              <h3 className="text-base font-bold text-gray-900 mb-0.5">Today's goals</h3>
+              <p className="text-sm text-gray-600">1/2 day plan</p>
+            </div>
+
+            {/* Chevron */}
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
 
         {/* In Progress Card */}
         <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/in-progress')}>
