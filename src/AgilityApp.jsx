@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import tlapkaSvg from './assets/tlapka.svg';
 import poharSvg from './assets/pohar.svg';
-import kalendarPng from './assets/kalendar.png';
+import agiAppLogo from './assets/agi-app-logo.svg';
 import profileSvg from './assets/profile.svg';
+import mainWidgetIllustration from './assets/main-widget-illustration.svg';
 
 export default function AgilityApp() {
   const navigate = useNavigate();
@@ -17,21 +18,25 @@ export default function AgilityApp() {
   return (
     <div className="min-h-screen bg-[#fffcfa]">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white border-b-2 border-[#06B6D4] shadow-lg">
         <div className="max-w-md mx-auto px-6 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={kalendarPng} alt="Calendar" className="w-6 h-6" />
-            <span className="font-bold text-base opacity-80">Agility planning</span>
+          <div className="flex items-center gap-4">
+            <img src={agiAppLogo} alt="Agility App" style={{ width: '49px', height: '46px' }} />
+            <div className="h-8 w-px bg-gray-300"></div>
+            <span className="font-bold text-base" style={{ opacity: 0.8 }}>Agility planning</span>
           </div>
           <div className="flex items-center gap-3">
             <button className="w-6 h-6">
-              <img src={profileSvg} alt="Profile" className="w-full h-full" />
+              <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+                <circle cx="12" cy="8" r="4" stroke="#12C7E5" strokeWidth="2"/>
+                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#12C7E5" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </button>
-            <button className="w-6 h-6 opacity-80">
+            <button className="w-6 h-6">
               <div className="space-y-1">
-                <div className="h-0.5 w-6 bg-gray-700"></div>
-                <div className="h-0.5 w-6 bg-gray-700"></div>
-                <div className="h-0.5 w-6 bg-gray-700"></div>
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
               </div>
             </button>
           </div>
@@ -42,33 +47,28 @@ export default function AgilityApp() {
       <main className="max-w-md mx-auto px-4 py-8 space-y-4">
 
         {/* Dog Profile Card */}
-        <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/records')}>
-          {/* Header with title and chevron */}
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-base font-bold text-gray-900">Training notes</h3>
-            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </div>
+        <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow overflow-hidden" onClick={() => navigate('/records')}>
+          <div className="flex items-start justify-between gap-4">
+            {/* Left side - Text content */}
+            <div className="flex-1 flex flex-col justify-center">
+              {/* Rest Day Badge */}
+              <div className="inline-block bg-[#06B6D4]/10 px-3 py-1 rounded-md mb-3">
+                <span className="text-xs font-bold text-[#0891B2] tracking-wider uppercase">rest day 1/2</span>
+              </div>
 
-          <div className="flex flex-col items-center">
-            {/* Dog Avatar with pulses */}
-            <div className="relative w-28 h-28 mb-6">
-              <img src={tlapkaSvg} alt="Dog paw" className="w-full h-full" />
+              {/* Dog Name */}
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">Kaii</h2>
+
+              {/* Info */}
+              <div className="space-y-1.5">
+                <p className="text-sm text-gray-600">Last session: <span className="font-medium text-gray-900">Yesterday</span></p>
+                <p className="text-sm text-gray-600">Focus area: <span className="font-medium text-gray-900">Jumps</span></p>
+              </div>
             </div>
 
-            {/* Dog Info */}
-            <h2 className="text-lg font-bold text-gray-900 mb-4">Kaii</h2>
-
-            <div className="w-full space-y-2 mb-4 text-center">
-              <p className="text-sm text-gray-600">Last session: <span className="font-medium text-gray-900">Yesterday</span></p>
-              <p className="text-sm text-gray-600">Focus area: <span className="font-medium text-gray-900">Jumps</span></p>
-              <p className="text-sm text-gray-600"><span className="font-medium text-gray-900">2 goals remaining</span></p>
-            </div>
-
-            {/* Rest Day Badge */}
-            <div className="bg-[#06B6D4]/10 px-3 py-1 rounded-md">
-              <span className="text-xs font-bold text-[#0891B2] tracking-wider uppercase">rest day 1/2</span>
+            {/* Right side - Illustration */}
+            <div className="w-48 h-48 flex-shrink-0 -mr-6 -my-6">
+              <img src={mainWidgetIllustration} alt="Dog jumping" className="w-full h-full object-cover rounded-2xl" />
             </div>
           </div>
         </div>
@@ -94,6 +94,16 @@ export default function AgilityApp() {
           </svg>
           Quick Voice Note
         </button>
+
+        {/* This Week Plan Card */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-shadow" onClick={() => navigate('/weekly-plan')}>
+          <div className="flex items-center justify-between">
+            <h3 className="text-base font-bold text-gray-900">This week plan</h3>
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </div>
+        </div>
 
         {/* Weekly Progress Card */}
         <div className="bg-white rounded-2xl shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => navigate('/weekly-plan')}>

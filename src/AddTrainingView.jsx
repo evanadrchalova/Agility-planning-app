@@ -92,7 +92,7 @@ export default function AddTrainingView() {
   return (
     <div className="min-h-screen bg-[#fffcfa]">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white border-b-2 border-[#06B6D4]">
         <div className="max-w-md mx-auto px-6 h-14 flex items-center justify-between">
           <button className="flex items-center gap-2 opacity-80" onClick={() => navigate('/')}>
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
@@ -100,6 +100,21 @@ export default function AddTrainingView() {
             </svg>
             <span className="font-bold text-base">Back</span>
           </button>
+          <div className="flex items-center gap-3">
+            <button className="w-6 h-6">
+              <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+                <circle cx="12" cy="8" r="4" stroke="#12C7E5" strokeWidth="2"/>
+                <path d="M4 20c0-4 3.6-6 8-6s8 2 8 6" stroke="#12C7E5" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+            <button className="w-6 h-6">
+              <div className="space-y-1">
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+                <div className="h-0.5 w-6 bg-[#12C7E5]"></div>
+              </div>
+            </button>
+          </div>
         </div>
       </header>
 
