@@ -61,7 +61,7 @@ export default function AgilityApp() {
               </div>
 
               {/* Dog Name */}
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">Kaii</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">Buddy</h2>
 
               {/* Info */}
               <div className="space-y-1.5">
